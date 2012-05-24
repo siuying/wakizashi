@@ -1,3 +1,4 @@
+pkg/*
 .repl_history
 Gemfile.lock
 build

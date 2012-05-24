@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
 
   gem.files = `git ls-files`.split($\)
   gem.test_files = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name = "nano-store"
+  gem.name = "wakizashi"
   gem.require_paths = ["lib"]
   gem.version = Wakizashi::VERSION
   gem.add_dependency 'motion-cocoapods', '>= 1.0.1'
