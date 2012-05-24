@@ -1,0 +1,2 @@
+describe "XmlNode" do
+end

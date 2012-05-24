@@ -17,12 +17,6 @@ describe "GDataXMLDocument" do
   
   it "search elment with xpath" do
     doc = GDataXMLDocument.with_html("<ul><li><p>Hello World</p></li><li>Boom</li></ul>")
-    nodes = doc.xpath("//p")
-    nodes.size.should == 1
-    nodes.first.class.should == GDataXMLElement
-    nodes.first.name == "p"
-    nodes.first.to_s == "Hello World"
-    
     nodes = doc.xpath("//li")
     nodes.size.should == 2
     nodes.first.class.should == GDataXMLElement
