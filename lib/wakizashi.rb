@@ -1,13 +1,14 @@
-module Wakizashi
-  class ParseError < StandardError; end
-  
-  module_function
-  
-  def XML(xml, *options)
-    ::GDataXMLDocument.with_xml(xml, *options)
+require "wakizashi/version"
+
+unless defined?(Motion::Project::Config)
+  raise "This file must be required within a RubyMotion project Rakefile."
+end
+
+Motion::Project::App.setup do |app|
+  Dir.glob(File.join(File.dirname(__FILE__), 'wakizashi/*.rb')).each do |file|
+    app.files.unshift(file)
   end
-  
-  def HTML(html, *options)
-    ::GDataXMLDocument.with_html(html, *options)
-  end
+
+  app.pods ||= Motion::Project::CocoaPods.new(app)
+  app.pods.dependency 'GDataXML-HTML'
 end

@@ -1,5 +1,4 @@
-# http://www.raywenderlich.com/725/how-to-read-and-write-xml-documents-with-gdataxml
-
+require "bundler/gem_tasks"
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project'
 require 'motion-redgreen'
@@ -17,4 +16,11 @@ Motion::Project::App.setup do |app|
   app.pods do
     dependency 'GDataXML-HTML'
   end
+end
+
+desc "Build the gem"
+task :gem do
+  sh "bundle exec gem build wakizashi.gemspec"
+  sh "mkdir -p pkg"
+  sh "mv *.gem pkg/"
 end
