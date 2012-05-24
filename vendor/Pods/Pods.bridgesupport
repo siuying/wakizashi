@@ -1,0 +1,231 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<constant name='kGDataXMLXPathDefaultNamespacePrefix' declared_type='char*' const='true' type='*'/>
+<enum name='GDataXMLAttributeDeclarationKind' value='10'/>
+<enum name='GDataXMLAttributeKind' value='3'/>
+<enum name='GDataXMLCommentKind' value='6'/>
+<enum name='GDataXMLDTDKind' value='8'/>
+<enum name='GDataXMLDocumentKind' value='1'/>
+<enum name='GDataXMLElementDeclarationKind' value='11'/>
+<enum name='GDataXMLElementKind' value='2'/>
+<enum name='GDataXMLEntityDeclarationKind' value='9'/>
+<enum name='GDataXMLInvalidKind' value='0'/>
+<enum name='GDataXMLNamespaceKind' value='4'/>
+<enum name='GDataXMLNotationDeclarationKind' value='12'/>
+<enum name='GDataXMLProcessingInstructionKind' value='5'/>
+<enum name='GDataXMLTextKind' value='7'/>
+<class name='GDataXMLDocument'>
+<method selector='XMLData'>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='description'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='initWithData:options:error:'>
+<arg name='data' declared_type='NSData*' type='@' index='0'/>
+<arg name='mask' declared_type='unsigned int' type='I' index='1'/>
+<arg name='error' declared_type='NSError**' type='^@' index='2'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithHTMLData:options:error:'>
+<arg name='data' declared_type='NSData*' type='@' index='0'/>
+<arg name='mask' declared_type='unsigned int' type='I' index='1'/>
+<arg name='error' declared_type='NSError**' type='^@' index='2'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithHTMLString:options:error:'>
+<arg name='str' declared_type='NSString*' type='@' index='0'/>
+<arg name='mask' declared_type='unsigned int' type='I' index='1'/>
+<arg name='error' declared_type='NSError**' type='^@' index='2'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithRootElement:'>
+<arg name='element' declared_type='GDataXMLElement*' type='@' index='0'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithXMLString:options:error:'>
+<arg name='str' declared_type='NSString*' type='@' index='0'/>
+<arg name='mask' declared_type='unsigned int' type='I' index='1'/>
+<arg name='error' declared_type='NSError**' type='^@' index='2'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='nodesForXPath:error:'>
+<arg name='xpath' declared_type='NSString*' type='@' index='0'/>
+<arg name='error' declared_type='NSError**' type='^@' index='1'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='nodesForXPath:namespaces:error:'>
+<arg name='xpath' declared_type='NSString*' type='@' index='0'/>
+<arg name='namespaces' declared_type='NSDictionary*' type='@' index='1'/>
+<arg name='error' declared_type='NSError**' type='^@' index='2'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='rootElement'>
+<retval declared_type='GDataXMLElement*' type='@'/>
+</method>
+<method selector='setCharacterEncoding:'>
+<arg name='encoding' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setVersion:'>
+<arg name='version' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='GDataXMLElement'>
+<method selector='addAttribute:'>
+<arg name='attribute' declared_type='GDataXMLNode*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addChild:'>
+<arg name='child' declared_type='GDataXMLNode*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='addNamespace:'>
+<arg name='aNamespace' declared_type='GDataXMLNode*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='attributeForLocalName:URI:'>
+<arg name='name' declared_type='NSString*' type='@' index='0'/>
+<arg name='attributeURI' declared_type='NSString*' type='@' index='1'/>
+<retval declared_type='GDataXMLNode*' type='@'/>
+</method>
+<method selector='attributeForName:'>
+<arg name='name' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='GDataXMLNode*' type='@'/>
+</method>
+<method selector='attributes'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='elementsForLocalName:URI:'>
+<arg name='localName' declared_type='NSString*' type='@' index='0'/>
+<arg name='URI' declared_type='NSString*' type='@' index='1'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='elementsForName:'>
+<arg name='name' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='initWithHTMLString:error:'>
+<arg name='str' declared_type='NSString*' type='@' index='0'/>
+<arg name='error' declared_type='NSError**' type='^@' index='1'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithXMLString:error:'>
+<arg name='str' declared_type='NSString*' type='@' index='0'/>
+<arg name='error' declared_type='NSError**' type='^@' index='1'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='namespaces'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='removeChild:'>
+<arg name='child' declared_type='GDataXMLNode*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='resolvePrefixForNamespaceURI:'>
+<arg name='namespaceURI' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='setNamespaces:'>
+<arg name='namespaces' declared_type='NSArray*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='GDataXMLNode'>
+<method selector='URI'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='XMLNode'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='XMLString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='attributeWithName:URI:stringValue:' class_method='true'>
+<arg name='name' declared_type='NSString*' type='@' index='0'/>
+<arg name='attributeURI' declared_type='NSString*' type='@' index='1'/>
+<arg name='value' declared_type='NSString*' type='@' index='2'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='attributeWithName:stringValue:' class_method='true'>
+<arg name='name' declared_type='NSString*' type='@' index='0'/>
+<arg name='value' declared_type='NSString*' type='@' index='1'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='childAtIndex:'>
+<arg name='index' declared_type='unsigned int' type='I' index='0'/>
+<retval declared_type='GDataXMLNode*' type='@'/>
+</method>
+<method selector='childCount'>
+<retval declared_type='NSUInteger' type='I'/>
+</method>
+<method selector='children'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='elementWithName:' class_method='true'>
+<arg name='name' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='GDataXMLElement*' type='@'/>
+</method>
+<method selector='elementWithName:URI:' class_method='true'>
+<arg name='name' declared_type='NSString*' type='@' index='0'/>
+<arg name='value' declared_type='NSString*' type='@' index='1'/>
+<retval declared_type='GDataXMLElement*' type='@'/>
+</method>
+<method selector='elementWithName:stringValue:' class_method='true'>
+<arg name='name' declared_type='NSString*' type='@' index='0'/>
+<arg name='value' declared_type='NSString*' type='@' index='1'/>
+<retval declared_type='GDataXMLElement*' type='@'/>
+</method>
+<method selector='kind'>
+<retval declared_type='GDataXMLNodeKind' type='I'/>
+</method>
+<method selector='localName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='localNameForName:' class_method='true'>
+<arg name='name' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='name'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='namespaceWithName:stringValue:' class_method='true'>
+<arg name='name' declared_type='NSString*' type='@' index='0'/>
+<arg name='value' declared_type='NSString*' type='@' index='1'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='nodesForXPath:error:'>
+<arg name='xpath' declared_type='NSString*' type='@' index='0'/>
+<arg name='error' declared_type='NSError**' type='^@' index='1'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='nodesForXPath:namespaces:error:'>
+<arg name='xpath' declared_type='NSString*' type='@' index='0'/>
+<arg name='namespaces' declared_type='NSDictionary*' type='@' index='1'/>
+<arg name='error' declared_type='NSError**' type='^@' index='2'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='prefix'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='prefixForName:' class_method='true'>
+<arg name='name' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='releaseCachedValues'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStringValue:'>
+<arg name='str' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='stringValue'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='textWithStringValue:' class_method='true'>
+<arg name='value' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+</signatures>

@@ -1,0 +1,5 @@
+PODS:
+  - GDataXML-HTML (1.0.0)
+
+DEPENDENCIES:
+  - GDataXML-HTML
