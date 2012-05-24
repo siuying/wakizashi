@@ -7,8 +7,6 @@ require 'motion-cocoapods'
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'wakizashi'
-
-  app.files.unshift("lib/wakizashi.rb")
   Dir.glob("lib/wakizashi/**/*.rb").each do |f|
     app.files.unshift(f)
   end
