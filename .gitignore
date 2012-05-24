@@ -1,4 +1,5 @@
 pkg/*
+vendor/Pods/Pods.xcodeproj/project.pbxproj
 .repl_history
 Gemfile.lock
 build
