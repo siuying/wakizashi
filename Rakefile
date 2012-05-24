@@ -7,9 +7,9 @@ require 'motion-cocoapods'
 
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
-  app.name = 'gdataxmlhtml'
-  
-  Dir.glob("lib/gdata/**/*.rb").each do |f|
+  app.name = 'wakizashi'
+
+  Dir.glob("lib/wakizashi/**/*.rb").each do |f|
     app.files.unshift(f)
   end
 
