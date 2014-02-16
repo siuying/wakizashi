@@ -1,6 +1,6 @@
 require "bundler/gem_tasks"
 $:.unshift("/Library/RubyMotion/lib")
-require 'motion/project'
+require 'motion/project/template/ios'
 require 'motion-redgreen'
 require 'motion-cocoapods'
 
@@ -12,7 +12,7 @@ Motion::Project::App.setup do |app|
   end
 
   app.pods do
-    dependency 'GDataXML-HTML'
+    pod 'GDataXML-HTML'
   end
 end
 

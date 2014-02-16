@@ -11,5 +11,7 @@ Motion::Project::App.setup do |app|
   end
 
   app.pods ||= Motion::Project::CocoaPods.new(app)
-  app.pods.dependency 'GDataXML-HTML'
+  app.pods do
+    pod 'GDataXML-HTML'
+  end
 end

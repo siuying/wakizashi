@@ -27,7 +27,7 @@ Motion::Project::App.setup do |app|
 
   # Only needed if you have not already specifying a pods dependency
   app.pods do
-    dependency 'GDataXML-HTML'
+    pod 'GDataXML-HTML'
   end
 end
 ```

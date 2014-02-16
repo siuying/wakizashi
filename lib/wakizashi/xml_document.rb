@@ -18,13 +18,13 @@ module Wakizashi
         :nowarning => HTML_PARSE_NOWARNING,
         :pedantic => HTML_PARSE_PEDANTIC,
         :noblanks => HTML_PARSE_NOBLANKS,
-        :nonet => HTML_PARSE_NONET,      
-        :noimplied => HTML_PARSE_NOIMPLIED,      
+        :nonet => HTML_PARSE_NONET,
+        :noimplied => HTML_PARSE_NOIMPLIED,
         :compact => HTML_PARSE_COMPACT,
         :ignore_enc => HTML_PARSE_IGNORE_ENC
       }
       DEFAULT_HTML_OPTIONS = [:nowarning, :noerror]
-    
+
       XML_PARSE_RECOVER = 1 # recover on errors
       XML_PARSE_NOENT = 2 # substitute entities
       XML_PARSE_DTDLOAD = 4 # load the external subset
@@ -74,27 +74,27 @@ module Wakizashi
 
       DEFAULT_XML_OPTIONS = [:nocdata, :noblanks]
     end
-  
+
     module CreationMethods
       include Options
 
       def with_html(html, *options)
         if options.size == 1 && options[0].is_a?(Fixnum)
           options_mask = options[0]
-        else      
+        else
           options = DEFAULT_HTML_OPTIONS if options.size == 0
           options_mask = option_to_mask(options, HTML_PARSE_OPTIONS)
         end
         error_ptr = Pointer.new(:id)
         if html.is_a?(NSData)
-          elem = self.alloc.initWithHTMLData(html, options:options_mask, error:error_ptr)
+          elem = self.alloc.initWithHTMLData(html, error:error_ptr)
         else
-          elem = self.alloc.initWithHTMLString(html, options:options_mask, error:error_ptr)
+          elem = self.alloc.initWithHTMLString(html, error:error_ptr)
         end
         raise Wakizashi::ParseError, error_ptr[0].description if error_ptr[0]
         elem
       end
-  
+
       def with_xml(xml, *options)
         if options.size == 1 && options[0].is_a?(Fixnum)
           options_mask = options[0]
@@ -104,14 +104,14 @@ module Wakizashi
         end
         error_ptr = Pointer.new(:id)
         if xml.is_a?(NSData)
-          elem = self.alloc.initWithData(xml, options:options_mask, error:error_ptr)
+          elem = self.alloc.initWithData(xml, error:error_ptr)
         else
-          elem = self.alloc.initWithXMLString(xml, options:options_mask, error:error_ptr)
+          elem = self.alloc.initWithXMLString(xml, error:error_ptr)
         end
         raise Wakizashi::ParseError, error_ptr[0].description if error_ptr[0]
         elem
       end
-  
+
       protected
       # TODO fix me with proper mask
       def option_to_mask(options, all_options)
@@ -126,19 +126,19 @@ module Wakizashi
         mask
       end
     end # CreationMethods
-  
+
     module InstanceMethods
       def xpath(xpath, options={})
         error_ptr = Pointer.new(:id)
         if options.empty?
-          result = self.nodesForXPath(xpath, error:error_ptr)        
+          result = self.nodesForXPath(xpath, error:error_ptr)
         else
           result = self.nodesForXPath(xpath, namespaces:options, error:error_ptr)
         end
         raise Wakizashi::ParseError, error_ptr[0].description if error_ptr[0]
         result
       end
-    end # InstanceMethods  
+    end # InstanceMethods
   end
 end
 

@@ -1,4 +1,0 @@
-PODS_ROOT = $(SRCROOT)/Pods
-HEADER_SEARCH_PATHS = "$(PODS_ROOT)/Headers" $(SDKROOT)/usr/include/libxml2 "$(PODS_ROOT)/Headers/GDataXML-HTML"
-ALWAYS_SEARCH_USER_PATHS = YES
-OTHER_LDFLAGS = -ObjC -all_load -lxml2

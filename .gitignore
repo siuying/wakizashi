@@ -6,3 +6,7 @@ build
 resources/*.nib
 resources/*.momd
 resources/*.storyboardc
+
+*.bridgesupport
+
+vendor/Pods
