@@ -8,3 +8,5 @@ resources/*.momd
 resources/*.storyboardc
 
 *.bridgesupport
+
+vendor/Pods
