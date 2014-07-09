@@ -7,7 +7,7 @@ module Wakizashi
         raise Wakizashi::ParseError, error_ptr[0].description if error_ptr[0]
         elem
       end
-  
+
       def with_xml(xml)
         error_ptr = Pointer.new(:id)
         elem = self.alloc.initWithXMLString(xml, error:error_ptr)
@@ -15,7 +15,7 @@ module Wakizashi
         elem
       end
     end
-    
+
     module InstanceMethods
       def []=(key, val)
         attr = self.attributeForName(key)
@@ -26,7 +26,7 @@ module Wakizashi
         end
         val
       end
-      
+
       def [](key)
         attr = self.attributeForName(key)
         if attr
@@ -34,6 +34,10 @@ module Wakizashi
         else
           nil
         end
+      end
+
+      def xpath *args
+        GDataXMLDocument.with_html(self.XMLString).xpath *args
       end
     end
   end

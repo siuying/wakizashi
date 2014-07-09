@@ -52,3 +52,10 @@ link["href"] = "http://wikipedia.org"
 link.stringValue = "Wiki"
 link.to_html => # "<html><body><h1>Hello World</h1><p>Welcome</p><p>Foo</p><a href='http://wikipedia.org'>Wiki</a></body></html>"
 ```
+
+Query children
+
+```ruby
+body = doc.xpath("//body").first
+h1 = body.xpath("//h1").first
+```
